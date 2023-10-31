@@ -13,9 +13,9 @@ def load_model():
 st.title("Streamlit текст-в-речь переводчик!")
 text = st.text_input("Введите текст:", value="some example text in the English language")
 button_submit = st.button("Распознать текст")
-if button_submit:
-    tokenizer, model = load_model()
+tokenizer, model = load_model()
     
+if button_submit:
     inputs = tokenizer(text, return_tensors="pt")
 
     with torch.no_grad():
