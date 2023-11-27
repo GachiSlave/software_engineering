@@ -14,3 +14,4 @@
 
 <h2><bold> Задание 1 - </bold>tusk1 </h2>
 <h2> <bold>Задание 2 - </bold>tusk2 </h2>
+<h2> <bold>Задание 3 - </bold>tusk3 </h2>
