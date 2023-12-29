@@ -1,12 +1,7 @@
 # software_engineering
->Данный репозиторий переводит текст на английском языке в речь при помощи готовой библиотеки ml, установить которую можно по ссылке:
->https://huggingface.co/facebook/mms-tts-eng/tree/main
+Practical lessons in software engineering number.
 
-Ссылка на готовое Web-приложение развернутое на Streamlit Cloud:
-
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://appapppy-glg9ykmarcwvxrb4agbxyd.streamlit.app/)
-
-Работу выполнили:
+## Работу выполнили:
 
 Луговых Владислав Витальевич РИМ-130908
 
@@ -15,6 +10,13 @@
 Чудинова Алена Сергеевна РИМ-130907
 
 Холоденко Мария Дмитриевна РИМ-130907
+____
+>Данный репозиторий переводит текст на английском языке в речь при помощи готовой библиотеки ml, установить которую можно по ссылке:
+>https://huggingface.co/facebook/mms-tts-eng/tree/main
+
+Ссылка на готовое Web-приложение развернутое на Streamlit Cloud:
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://appapppy-glg9ykmarcwvxrb4agbxyd.streamlit.app/)
 
 <h2><bold> Задание 1 -  <a href="https://github.com/DanilaAkh/software_engineering/tree/main/tusk1"> tusk1</a></bold></h2>
 
