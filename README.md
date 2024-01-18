@@ -1,7 +1,7 @@
 # software_engineering
 Practical lessons in software engineering number.
 
-## Работу выполнили:
+## Участники команды:
 
 Луговых Владислав Витальевич РИМ-130908
 
@@ -11,23 +11,42 @@ Practical lessons in software engineering number.
 
 Холоденко Мария Дмитриевна РИМ-130907
 ____
->Данный репозиторий переводит текст на английском языке в речь при помощи готовой библиотеки ml, установить которую можно по ссылке:
+
+## Описание модели:
+С помощью рассматриваемой модели выполняется перевод текста на английском языке в речь при помощи готовой библиотеки ml, установить которую можно по ссылке:
 >https://huggingface.co/facebook/mms-tts-eng/tree/main
 
-Ссылка на готовое Web-приложение развернутое на Streamlit Cloud:
+### Использование модели:
+```
+from transformers import VitsModel, AutoTokenizer
+import torch
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://appapppy-glg9ykmarcwvxrb4agbxyd.streamlit.app/)
+model = VitsModel.from_pretrained("facebook/mms-tts-eng")
+tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-eng")
 
-<h2><bold> Задание 1 -  <a href="https://github.com/DanilaAkh/software_engineering/tree/main/tusk1"> tusk1</a></bold></h2>
+text = "some example text in the English language"
+inputs = tokenizer(text, return_tensors="pt")
 
- - Реализация решения выбранной задачи в коде с использованием готовой библиотеки машинного обучения
-<h2> <bold>Задание 2, 4 - <a href="https://github.com/DanilaAkh/software_engineering/tree/main/tusk2_4"> tusk2_4</a></bold></h2>
+with torch.no_grad():
+    output = model(**inputs).waveform
+```
+## Разработка Web-приложения:
+#### Установка необходимых пакетов:
 
- - Разработка Web-приложения на основе библиотеки Streamlit
- - Развертывание Web-приложения на облачной платформе Streamlit Cloud
-<h2> <bold>Задание 3 - <a href="https://github.com/DanilaAkh/software_engineering/tree/main/tusk3"> tusk3</a>, <a href="https://github.com/DanilaAkh/software_engineering/tree/main/tusk5"> tusk5</a></bold></h2>
+***Созданный файл requirements.txt содержит список всех необходимых библиотек***
+```
+pip install -r requirements.txt
+```
+***Запуск приложения***
+```
+streamlit run ./streamlit_app.py
+```
+## Развертывание Web приложения в облаке Streamlit:
 
- - Создавание API для модели машинного обучения
-<h2> <bold>Задание 5 - <a href="https://github.com/DanilaAkh/software_engineering/tree/main/tusk5"> tusk5</a></bold></h2>
+Веб-приложение доступно по ссылке:
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://appapppy-yp3guae6xlaon7c8ausr4p.streamlit.app/)
 
- - Разработка тестов для API модели машинного обучения с автоматизированным запуском на GitHub
+## Тесты:
+-Разработаны тесты (test_stream.py) модели машинного обучения(streamlit_app.py).
+
+
