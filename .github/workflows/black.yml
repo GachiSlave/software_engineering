@@ -13,3 +13,4 @@ jobs:
       - uses: psf/black@stable
         with:
           options: "--verbose"
+      - run: black streamlit_app.py
