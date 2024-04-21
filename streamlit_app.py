@@ -1,9 +1,6 @@
-
-import torch
-from transformers import pipeline
-from transformers import VitsModel, AutoTokenizer
-
 import streamlit as st
+import torch
+from transformers import VitsModel, AutoTokenizer
 
 
 @st.cache_resource()
@@ -16,7 +13,8 @@ st.title("Streamlit текст-в-речь переводчик!")
 text = st.text_input("Введите текст:", value="some example text in the English language")
 button_submit = st.button("Распознать текст")
 tokenizer, model = load_model()
-    
+
+
 if button_submit:
     inputs = tokenizer(text, return_tensors="pt")
 
