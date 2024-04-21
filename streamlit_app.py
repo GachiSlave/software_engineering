@@ -9,6 +9,7 @@ def load_model():
     tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-eng")
     return tokenizer, model
 
+
 st.title("Streamlit текст-в-речь переводчик!")
 text = st.text_input("Введите текст:", value="some example text in the English language")
 button_submit = st.button("Распознать текст")
@@ -20,6 +21,5 @@ if button_submit:
 
     with torch.no_grad():
         output = model(**inputs).waveform
-        
         st.audio(output.float().numpy(), sample_rate=model.config.sampling_rate)
         st.snow()

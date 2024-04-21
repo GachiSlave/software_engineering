@@ -11,8 +11,8 @@ at = AppTest.from_file("streamlit_app.py", default_timeout=1000).run()
 def test_run_app():
     '''Проверка загрузки модели, заголовка и приветственной строчки для ввода текста'''
     at.run()
-    at.title[0].value == "Streamlit текст-в-речь переводчик!" == True
-    at.text_input[0].value == "Введите текст:" == True
+    at.title[0].value == "Streamlit текст-в-речь переводчик!"
+    at.text_input[0].value == "Введите текст:"
     assert not at.exception
 
 
@@ -20,7 +20,7 @@ def test_run_app():
 def test_text_input_button():
     '''Проверка корректности распознавания текста и генерации речи'''
     at.text_input[0].input("i purrrrred you on thursday, but (i'm) there are seven fridays in the week").run()
-    at.button[0].click().run()    
+    at.button[0].click().run()
     assert not at.exception
 
 
@@ -42,7 +42,7 @@ def test_empty_text_input_button():
     at.button[0].click().run()
     assert at.exception
 
-    
+ 
 # Тест №5
 def test_symbols_input_button():
     '''Проверка корректности введенного текста для генерации речи (появляется ошибка в приложении)'''
