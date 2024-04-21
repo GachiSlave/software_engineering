@@ -42,7 +42,7 @@ def test_empty_text_input_button():
     at.button[0].click().run()
     assert at.exception
 
- 
+
 # Тест №5
 def test_symbols_input_button():
     '''Проверка корректности введенного текста для генерации речи (появляется ошибка в приложении)'''
