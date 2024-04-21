@@ -6,26 +6,27 @@ import torch
 
 at = AppTest.from_file("streamlit_app.py", default_timeout=1000).run()
 
+
 # Тест №1
-'''Проверка загрузки модели, заголовка и приветственной строчки для ввода текста'''
 def test_run_app():
+    '''Проверка загрузки модели, заголовка и приветственной строчки для ввода текста'''
     at.run()
     at.title[0].value == "Streamlit текст-в-речь переводчик!" == True
     at.text_input[0].value == "Введите текст:" == True
     assert not at.exception
 
 
-# Тест №2  
-'''Проверка корректности распознавания текста и генерации речи'''
+# Тест №2
 def test_text_input_button():
+    '''Проверка корректности распознавания текста и генерации речи'''
     at.text_input[0].input("i purrrrred you on thursday, but (i'm) there are seven fridays in the week").run()
     at.button[0].click().run()    
     assert not at.exception
 
 
-# Тест №3 
-'''Проверка генерации речи и вывода аудио'''
+# Тест №3
 def test_audio_output():
+    '''Проверка генерации речи и вывода аудио'''
     at.button[0].click().run()
     inputs = streamlit_app.tokenizer('everyday rain', return_tensors="pt")
     with torch.no_grad():
@@ -34,25 +35,25 @@ def test_audio_output():
         assert not at.exception
 
 
-# Тест №4    
-'''Проверка распознавания пустой строчки при генерации речи (появляется ошибка в приложении)'''
+# Тест №4
 def test_empty_text_input_button():
+    '''Проверка распознавания пустой строчки при генерации речи (появляется ошибка в приложении)'''
     at.text_input[0].input("").run()
     at.button[0].click().run()
     assert at.exception
 
     
-# Тест №5    
-'''Проверка корректности введенного текста для генерации речи (появляется ошибка в приложении)'''
+# Тест №5
 def test_symbols_input_button():
+    '''Проверка корректности введенного текста для генерации речи (появляется ошибка в приложении)'''
     at.text_input[0].input("(；⌣̀︹⌣́)").run()
     at.button[0].click().run()
     assert at.exception
 
 
-# Тест №6    
-'''Проверка языка введенного текста для генерации речи (появляется ошибка в приложении)'''
+# Тест №6
 def test_leng_input_button():
+    '''Проверка языка введенного текста для генерации речи (появляется ошибка в приложении)'''
     at.text_input[0].input("когда останется немного в этом медленном пути").run()
     at.button[0].click().run()
     assert at.exception
